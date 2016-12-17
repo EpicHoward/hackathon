@@ -4,21 +4,20 @@ html {
 
 body {
     width: 100%;
-    background-image: url(https://upload.wikimedia.org/wikipedia/commons/2/28/Landfill.jpg);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
+    height: 100%;
 }
 
 .trash {
+    cursor: pointer;
     position: absolute;
     background-size: 100% 100%;
     background-repeat: no-repeat;
+    width:100px;
+    height:100px;
 }
 
-.melon {
-    background-image: url(./Images/watermelon.png);
-    height: 100px;
-    width: 100px;
+.trash:hover{
+    border: solid 2px red;
 }
 
 #trashspace {
@@ -29,14 +28,15 @@ body {
 #binspace {
     height: 40%;
     width: 100%;
-    border: solid 10px blue;
+    border: dashed 10px red;
+    background-color: transparent;
 }
 
 #gamespace{
-    height: 80%;
-    
-    
-    
+    height: 100%;
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/2/28/Landfill.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 
 .itemfields {
@@ -45,7 +45,7 @@ body {
 
 .bins {
     display: inline-block;
-    height: 50%;
+    height: 100%;
     width: 19%;
     background-size: 100% 100%;
     margin: 2.32px;
@@ -71,6 +71,13 @@ body {
     background-image: url(./Images/landfill-bin.png);
 }
 
+#score{
+    text-align: center;
+    font-size: 15%;
+    
+}
+
+
 .life {
-    width: 10%;
+    width: 50px;
 }
