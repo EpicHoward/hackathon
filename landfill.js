@@ -1,2 +1,2 @@
-var whip= new Audio("./Sound/whip.mp3");
-whip.play();
+var landfill = new Audio("./Sound/landfill.mp3");
+landfill.play();

@@ -12,11 +12,11 @@ body {
     position: absolute;
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    width:100px;
-    height:100px;
+    width: 100px;
+    height: 100px;
 }
 
-.trash:hover{
+.trash:hover {
     border: solid 2px red;
 }
 
@@ -32,7 +32,7 @@ body {
     background-color: transparent;
 }
 
-#gamespace{
+#gamespace {
     height: 100%;
     background-image: url(https://upload.wikimedia.org/wikipedia/commons/2/28/Landfill.jpg);
     background-size: 100% 100%;
@@ -71,12 +71,10 @@ body {
     background-image: url(./Images/landfill-bin.png);
 }
 
-#score{
+#score {
     text-align: center;
-    font-size: 15%;
-    
+    height: 20px;
 }
-
 
 .life {
     width: 50px;

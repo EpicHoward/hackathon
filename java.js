@@ -2,23 +2,28 @@
 $(document).ready(function() {
     var timeLimitSeconds = 30;
     var numImgs = 15;
-    var maxTrash = 12;
-    var spottedTrash = 5; 
+    var maxTrash = 5;
+    var spottedTrash = 5;
     var trashList = [];
+    //Different sound files for when putting it in bin
     var bitingEffect = new Audio("./Sound/Biting-Apple.mp3");
     var paperEffect = new Audio("./Sound/paper.mp3");
     var plasticEffect = new Audio("./Sound/plastic.mp3");
     var landfillEffect = new Audio("./Sound/landfill.mp3");
     var breakingEffect = new Audio("./Sound/Breaking.mp3");
+    //Recycle type of item(Glass,Compost, etc)
     var recycletype = "";
+    //the jQuery Element so it can be deleted
     var trashItem = "";
     var score = 0;
+    var livesLost=0;
+    //Looks for html where score value goes
     var scoreElement = $("#scoreValue");
-    
-    for (x=0;x<maxTrash;x++){
-        trashList.push(x%numImgs);
+
+    for (x = 0; x < maxTrash; x++) {
+        trashList.push(x % numImgs);
     }
-    
+
     var recycleMap = {
         1: "glass",
         2: "compost",
@@ -34,40 +39,42 @@ $(document).ready(function() {
         12: "paper",
         13: "plastic",
         14: "landfill"
-        
-        
+
+
     };
-        
-    
+
+
     var startTime = new Date();
     var gameLoop = function() {
-        var secondsPassed =Math.floor((new Date()-startTime)/1000)
-        if (secondsPassed>timeLimitSeconds){
-            
+        var secondsPassed = Math.floor((new Date() - startTime) / 1000)
+        if (secondsPassed > timeLimitSeconds) {
+            youWin();
         }
         else {
             var visibleTrash = $(".trash").length;
-            for (x=0;x<spottedTrash-visibleTrash;x++){
+            for (x = 0; x < spottedTrash - visibleTrash; x++) {
                 genTrash();
             }
-            $("#timer").html(timeLimitSeconds-secondsPassed);
+            $("#timer").html(timeLimitSeconds - secondsPassed);
         }
-        
+        if (score+livesLost == maxTrash) {
+            youWin();
+        }
     }
-    setInterval(gameLoop,500);
+    setInterval(gameLoop, 500);
 
     var genTrash = function() {
         var trashIndex = genRandom(trashList.length);
-        var trashNum = trashList[trashIndex] +1;
-        trashList.splice(trashIndex,1);
-        
+        var trashNum = trashList[trashIndex] + 1;
+        trashList.splice(trashIndex, 1);
+
         var div = $("<div></div>");
         div.addClass('trash');
-        div.data("recycle-type",recycleMap[trashNum])
+        div.data("recycle-type", recycleMap[trashNum])
         div.css({
             top: genRandom(80) + "%",
             left: genRandom(80) + "%",
-            "background-image": "url(./Images/"+trashNum+".png)"
+            "background-image": "url(./Images/" + trashNum + ".png)"
         });
         $("#trashspace").append(div);
     };
@@ -76,7 +83,7 @@ $(document).ready(function() {
         return Math.floor(Math.random() * num);
     };
 
-    
+
     for (x = 0; x < spottedTrash; x++) {
         genTrash();
     }
@@ -84,72 +91,94 @@ $(document).ready(function() {
     var loseLife = function() {
         var numLives = $(".life").length;
         $(".life").first().remove();
-        console.log("lives"+numLives);
-        if (numLives == 0) {
-        youLose();
-        
+        console.log("lives" + numLives);
+        livesLost++;
+        if (numLives == 1) {
+            youLose();
+
         }
     }
-    var youLose = function(){
-        window.location.href="/youlose.html";
+
+    var youLose = function() {
+        window.location.href = "/youlose.html";
     }
-    
-    $(".trash").click(function (e){
-        
+    var youWin = function() {
+        window.location.href = "/youwin.html";
+    }
+
+
+
+
+
+
+
+
+
+
+
+    //If a trash is clicked, defines the recy
+    $(".trash").click(function(e) {
+
         recycletype = $(e.target).data("recycle-type");
         trashItem = $(e.target);
         console.log(recycletype);
     });
-    
-    $(".bins").click(function (e){
+
+    $(".bins").click(function(e) {
         //console.log(e);
         var trashtype = e.target.dataset["recycletype"];
         console.log(trashtype);
-        
+
         if (recycletype === "") {
             console.log("You aint do nuffin");
             //User Didn't click anything
             return;
-        }else if(recycletype !== trashtype){
+        }
+        else if (recycletype !== trashtype) {
             loseLife();
             trashPick(trashtype);
             console.log("bad");
-            
-        } else if(recycletype === trashtype){
+
+        }
+        else if (recycletype === trashtype) {
             trashPick(trashtype);
             score++;
             scoreElement.html(score);
             console.log("good");
         }
-        
-        
+
+
         //console
     });
-    var trashPick = function(trashtype){
-        
+    var trashPick = function(trashtype) {
+
         //Play sound effect
-        if(trashtype === "plastic"){
+        if (trashtype === "plastic") {
             plasticEffect.play();
-        } else if(trashtype === "paper"){
+        }
+        else if (trashtype === "paper") {
             paperEffect.play();
-        } else if(trashtype === "compost"){
+        }
+        else if (trashtype === "compost") {
             bitingEffect.play();
-        } else if(trashtype === "glass"){
+        }
+        else if (trashtype === "glass") {
             breakingEffect.play();
-        } else if(trashtype === "landfill"){
+        }
+        else if (trashtype === "landfill") {
             landfillEffect.play();
         }
-        
-        
+
+
         //Remove trash html
         trashItem.remove();
-        
+
         //reset trash type
-            recycletype = "";
-            trashItem = "";
+        recycletype = "";
+        trashItem = "";
     }
-    
-    
+
+
 
 
 
