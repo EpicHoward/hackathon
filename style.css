@@ -1,0 +1,50 @@
+html {
+    height: 800px;
+}
+
+
+body{
+    height: 100%;
+    width: 100%;
+    background-color: red;
+    
+
+}
+
+.trash{
+    
+    position: absolute;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+
+.melon{
+    background-image: url(./Images/watermelon.png);
+    height: 100px;
+    width: 100px;
+}
+
+#trashspace{
+    border: solid 10px green;
+    position: relative;
+    height: 60%;
+    width: 100%;
+    
+}
+
+
+#binspace{
+    border: solid 10px blue;
+    position: relative;
+    height: 40%;
+    width: 100%;
+}
+
+.itemfields{
+    
+    border: solid 10px blue;
+    position: relative;
+    height: 40%;
+    width: 100%;
+}
