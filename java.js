@@ -2,7 +2,7 @@
 $(document).ready(function() {
     var timeLimitSeconds = 30;
     var numImgs = 15;
-    var maxTrash = 5;
+    var maxTrash = 12;
     var spottedTrash = 5;
     var trashList = [];
     //Different sound files for when putting it in bin
@@ -48,7 +48,7 @@ $(document).ready(function() {
     var gameLoop = function() {
         var secondsPassed = Math.floor((new Date() - startTime) / 1000)
         if (secondsPassed > timeLimitSeconds) {
-            youWin();
+            youLose();
         }
         else {
             var visibleTrash = $(".trash").length;
@@ -100,10 +100,10 @@ $(document).ready(function() {
     }
 
     var youLose = function() {
-        window.location.href = "/youlose.html";
+        window.location.href = "./youlose.html";
     }
     var youWin = function() {
-        window.location.href = "/youwin.html";
+        window.location.href = "./youwin.html";
     }
 
 
