@@ -2,49 +2,58 @@ html {
     height: 800px;
 }
 
-
-body{
+body {
     height: 100%;
     width: 100%;
     background-color: red;
-    
-
 }
 
-.trash{
-    
+.trash {
     position: absolute;
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
 
-
-.melon{
+.melon {
     background-image: url(./Images/watermelon.png);
     height: 100px;
     width: 100px;
 }
 
-#trashspace{
-    border: solid 10px green;
-    position: relative;
+#trashspace {
     height: 60%;
     width: 100%;
-    
 }
 
-
-#binspace{
-    border: solid 10px blue;
-    position: relative;
+#binspace {
     height: 40%;
     width: 100%;
 }
 
-.itemfields{
-    
+.itemfields {
     border: solid 10px blue;
     position: relative;
-    height: 40%;
-    width: 100%;
+}
+
+.bins {
+    display: inline-block;
+    background-color: yellow;
+    height: 50%;
+    width: 19%;
+    background-size: 100% 100%;
+    margin: 2.32px;
+}
+
+#paper {}
+
+#plastic {}
+
+#glass {}
+
+#compost {}
+
+#landfill {}
+
+.life {
+    width: 10%;
 }
