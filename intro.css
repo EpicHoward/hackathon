@@ -1,16 +1,19 @@
 h1 {
-    font-size: 250%;
+    font-size: 450%;
     text-align: center;
-    color: white;
+    color: yellow;
+    font-weight: bold;
 }
 
 li {
-    color: gray;
+    color: yellow;
     font-size: 200%;
+    font-weight: bold;
+    margin-left: 70px;
 }
 
 body {
-    background-image: url("http://showishcard.com/wp-content/uploads/2016/11/dreamy-recycling-christmas-wrapping-paper-best-christmas-moment.jpg");
+    background-image: url("http://sanelijolife.com/wp-content/uploads/2015/12/Christmas-Tree-Recycling-7.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100% 100%;

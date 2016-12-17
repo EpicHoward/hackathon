@@ -1,6 +1,13 @@
 // JavaScript File
 $(document).ready(function() {
     var timeLimitSeconds = 30;
+    var numImgs = 15;
+    var maxTrash = 30;
+    var trashList = [];
+    for (x=0;x<maxTrash;x++){
+        trashList.append(x%numImgs);
+        
+    }
     var startTime = new Date();
     var gameLoop = function() {
         var secondsPassed =Math.floor((new Date()-startTime)/1000)
@@ -14,6 +21,8 @@ $(document).ready(function() {
     setInterval(gameLoop,500);
 
     var genTrash = function() {
+        var trashIndex = genRandom(trashList.length);
+        var trashNum = trashList[trashIndex];
         var div = $("<div></div>");
         div.addClass('melon');
         div.addClass('trash');

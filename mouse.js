@@ -1,5 +1,9 @@
 $(document).ready(function(){
+    
+    
+    
     var recycletype = "";
+    var score = 0;
     var recyclemap = {
         1: "glass",
         2: "reindeer",
@@ -44,7 +48,8 @@ $(document).ready(function(){
             
         }else if(recycletype === trashtype){
             //getPoint();
-            console.log("good");
+            score++;
+            console.log(good);
         }
         //console
     });

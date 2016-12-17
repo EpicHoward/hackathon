@@ -1,0 +1,8 @@
+body {
+    background: url(https://www.raywenderlich.com/wp-content/uploads/2015/04/ZombieConga-YouLose.png) no-repeat center fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    width: 100%;
+    height: 100%
+}
