@@ -23,13 +23,15 @@ $(document).ready(function(){
     
     
     $(".trash").click(function (e){
-        console.log(e);
-        //recycletype = "compost";
+        
+        recycletype = e.target.dataset["recycletype"];;
         //console.log(e);
     });
     
     $(".bins").click(function (e){
-        var trashtype = recyclemap["5"];
+        //console.log(e);
+        var trashtype = e.target.dataset["recycletype"];
+        console.log(trashtype);
         
         if (recycletype === "") {
             console.log("You aint do nuffin");

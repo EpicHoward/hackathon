@@ -44,15 +44,25 @@ body {
     margin: 2.32px;
 }
 
-#paper {}
+#paper {
+    background-image: url(./Images/watermelon.png);
+}
 
-#plastic {}
+#plastic {
+    background-image: url(./Images/watermelon.png);
+}
 
-#glass {}
+#glass {
+    background-image: url(./Images/watermelon.png);
+}
 
-#compost {}
+#compost {
+    background-image: url(./Images/watermelon.png);
+}
 
-#landfill {}
+#landfill {
+    background-image: url(./Images/landfill-bin.png);
+}
 
 .life {
     width: 10%;
